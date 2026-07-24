@@ -1,65 +1,363 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Crie seu Produto</title>
+
+<title>Marketing Creator</title>
 
 <link rel="stylesheet" href="style.css">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
 </head>
 
 <body>
 
+<div class="background"></div>
+
+<header>
+
+<h1>
+<i class="fa-solid fa-bullhorn"></i>
+Marketing Creator
+</h1>
+
+<p>Crie uma propaganda incrível para seu produto.</p>
+
+</header>
+
 <div class="container">
 
-<h1>🚀 Agência de Marketing</h1>
+<!-- PAINEL -->
 
-<p>
-Crie seu produto e veja sua propaganda ganhar vida!
-</p>
+<div class="painel">
 
-<div class="formulario">
+<h2>Informações</h2>
 
-<input id="nome" placeholder="Nome do Produto">
+<label>Nome da Empresa</label>
+<input type="text" id="empresa">
 
-<input id="marca" placeholder="Marca">
+<label>Nome do Produto</label>
+<input type="text" id="produto">
 
-<input id="preco" placeholder="Preço">
+<label>Slogan</label>
+<input type="text" id="slogan">
 
-<input id="publico" placeholder="Público-alvo">
+<label>Descrição</label>
+<textarea id="descricao"></textarea>
 
-<input id="cor" type="color">
+<label>Público-alvo</label>
+<input type="text" id="publico">
 
-<textarea id="descricao" placeholder="Descreva seu produto"></textarea>
+<label>Categoria</label>
 
-<input id="slogan" placeholder="Slogan">
+<select id="categoria">
 
-<select id="emoji">
+<option>Tecnologia</option>
 
-<option>🍕</option>
-<option>🥤</option>
-<option>📱</option>
-<option>🎮</option>
-<option>👟</option>
-<option>🧴</option>
-<option>🍫</option>
-<option>☕</option>
-<option>🚲</option>
-<option>🎧</option>
+<option>Moda</option>
+
+<option>Alimentação</option>
+
+<option>Games</option>
+
+<option>Esportes</option>
+
+<option>Cosméticos</option>
+
+<option>Educação</option>
+
+<option>Outros</option>
 
 </select>
 
-<button onclick="criar()">Criar Propaganda</button>
+<label>Preço</label>
+
+<input type="number" id="preco">
+
+<label>Desconto (%)</label>
+
+<input type="number" id="desconto" value="0">
+
+<label>Emoji do Produto</label>
+
+<select id="emoji">
+
+<option>📱</option>
+
+<option>🍔</option>
+
+<option>🎧</option>
+
+<option>🎮</option>
+
+<option>👟</option>
+
+<option>☕</option>
+
+<option>🚲</option>
+
+<option>📚</option>
+
+<option>💄</option>
+
+<option>🍫</option>
+
+<option>🧴</option>
+
+<option>💻</option>
+
+<option>⌚</option>
+
+<option>🎁</option>
+
+</select>
+
+<label>Cor Principal</label>
+
+<input type="color" id="cor1" value="#6C63FF">
+
+<label>Cor Secundária</label>
+
+<input type="color" id="cor2" value="#00C9FF">
+
+<label>Cor do Texto</label>
+
+<input type="color" id="texto" value="#ffffff">
+
+<label>Imagem do Produto</label>
+
+<input type="file" id="imagem">
+
+<label>Avaliação</label>
+
+<input type="range"
+
+id="nota"
+
+min="1"
+
+max="5"
+
+value="5">
+
+<label>Promoção</label>
+
+<select id="promocao">
+
+<option>Sem promoção</option>
+
+<option>Oferta Relâmpago</option>
+
+<option>Black Friday</option>
+
+<option>Liquidação</option>
+
+<option>Últimas Unidades</option>
+
+<option>Lançamento</option>
+
+</select>
+
+<div class="checks">
+
+<label>
+
+<input type="checkbox" id="frete">
+
+Frete Grátis
+
+</label>
+
+<label>
+
+<input type="checkbox" id="brinde">
+
+Brinde
+
+</label>
+
+<label>
+
+<input type="checkbox" id="selo">
+
+Produto do Ano
+
+</label>
+
+<label>
+
+<input type="checkbox" id="escuro">
+
+Modo Escuro
+
+</label>
 
 </div>
 
-<div id="resultado" class="propaganda">
+<button onclick="criarPropaganda()">
 
-<h2>Seu anúncio aparecerá aqui</h2>
+<i class="fa-solid fa-wand-magic-sparkles"></i>
+
+Criar Propaganda
+
+</button>
+
+<button onclick="limparCampos()">
+
+<i class="fa-solid fa-trash"></i>
+
+Limpar
+
+</button>
+
+</div>
+
+<!-- PROPAGANDA -->
+
+<div class="preview">
+
+<div id="card">
+
+<div id="seloAno"></div>
+
+<div id="categoriaCard"></div>
+
+<div id="promo"></div>
+
+<div class="empresa" id="empresaCard">
+Sua Empresa
+</div>
+
+<div class="produto">
+
+<div class="emoji" id="emojiCard">
+
+📦
+
+</div>
+
+<h2 id="produtoCard">
+
+Produto
+
+</h2>
+
+</div>
+
+<div class="imagem">
+
+<img
+
+id="foto"
+
+src=""
+
+style="display:none;">
+
+</div>
+
+<h3 id="sloganCard">
+
+Seu slogan aparece aqui
+
+</h3>
+
+<div id="estrelas">
+
+★★★★★
+
+</div>
+
+<div class="precos">
+
+<p id="precoOriginal"></p>
+
+<h1 id="precoNovo">
+
+R$0,00
+
+</h1>
+
+</div>
+
+<p id="descricaoCard">
+
+Descrição do produto.
+
+</p>
+
+<div class="info">
+
+<div id="publicoCard">
+
+🎯 Público
+
+</div>
+
+<div id="freteCard"></div>
+
+<div id="brindeCard"></div>
+
+</div>
+
+<div class="contador">
+
+⏰ Oferta termina em
+
+<span id="tempo">
+
+24:00:00
+
+</span>
+
+</div>
+
+<div class="estatisticas">
+
+<div>
+
+❤️
+
+<span id="likes">
+
+0
+
+</span>
+
+</div>
+
+<div>
+
+👁️
+
+<span id="views">
+
+0
+
+</span>
+
+</div>
+
+</div>
+
+<button class="comprar">
+
+COMPRAR AGORA
+
+</button>
+
+</div>
 
 </div>
 
@@ -68,4 +366,5 @@ Crie seu produto e veja sua propaganda ganhar vida!
 <script src="script.js"></script>
 
 </body>
+
 </html>
