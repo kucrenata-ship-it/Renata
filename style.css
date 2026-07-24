@@ -2,192 +2,309 @@
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:Poppins,sans-serif;
+font-family:'Poppins',sans-serif;
 }
 
 body{
-
-background:linear-gradient(135deg,#ff6ec4,#7873f5,#00d4ff);
-
-background-size:400%;
-
-animation:fundo 10s infinite alternate;
-
-display:flex;
-
-justify-content:center;
-
+background:linear-gradient(-45deg,#6C63FF,#00C9FF,#ff6ec7,#ffe66d);
+background-size:400% 400%;
+animation:fundo 12s ease infinite;
+min-height:100vh;
 padding:30px;
-
 }
 
 @keyframes fundo{
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
+}
 
-0%{background-position:left;}
-100%{background-position:right;}
+header{
+text-align:center;
+color:white;
+margin-bottom:25px;
+}
 
+header h1{
+font-size:45px;
+font-weight:700;
+}
+
+header p{
+font-size:18px;
+margin-top:10px;
 }
 
 .container{
-
-width:900px;
-
-background:white;
-
-padding:30px;
-
-border-radius:25px;
-
-box-shadow:0 15px 40px rgba(0,0,0,.3);
-
-}
-
-h1{
-
-text-align:center;
-
-color:#5d3fd3;
-
-font-size:40px;
-
-}
-
-p{
-
-text-align:center;
-
-margin:15px;
-
-}
-
-.formulario{
-
 display:grid;
+grid-template-columns:380px 1fr;
+gap:25px;
+max-width:1400px;
+margin:auto;
+}
 
-grid-template-columns:1fr 1fr;
+.painel{
+background:rgba(255,255,255,.25);
+backdrop-filter:blur(12px);
+padding:25px;
+border-radius:25px;
+box-shadow:0 10px 30px rgba(0,0,0,.2);
+}
 
-gap:15px;
+.painel h2{
+text-align:center;
+margin-bottom:20px;
+color:white;
+}
 
-margin-top:25px;
+label{
+display:block;
+margin-top:15px;
+margin-bottom:5px;
+font-weight:600;
+color:white;
+}
 
+input,
+textarea,
+select{
+width:100%;
+padding:12px;
+border:none;
+border-radius:12px;
+font-size:15px;
+outline:none;
 }
 
 textarea{
-
-grid-column:span 2;
-
-height:100px;
-
 resize:none;
-
+height:80px;
 }
 
-input,select,textarea{
+.checks{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:10px;
+margin-top:15px;
+color:white;
+}
 
-padding:15px;
-
-border:none;
-
-border-radius:15px;
-
-background:#f0f0f0;
-
-font-size:17px;
-
+.checks label{
+display:flex;
+align-items:center;
+gap:8px;
+font-size:14px;
 }
 
 button{
-
-grid-column:span 2;
-
-padding:18px;
-
-background:#ff4081;
-
-color:white;
-
-font-size:22px;
-
+width:100%;
+margin-top:18px;
+padding:15px;
 border:none;
-
 border-radius:15px;
-
+font-size:18px;
+font-weight:bold;
 cursor:pointer;
-
-transition:.4s;
-
+transition:.3s;
+background:#6C63FF;
+color:white;
 }
 
 button:hover{
-
-transform:scale(1.05);
-
-background:#e91e63;
-
+transform:translateY(-3px) scale(1.03);
+box-shadow:0 10px 25px rgba(0,0,0,.3);
 }
 
-.propaganda{
+.preview{
+display:flex;
+justify-content:center;
+align-items:flex-start;
+}
 
-margin-top:40px;
-
+#card{
+width:100%;
+max-width:700px;
+background:white;
+border-radius:30px;
 padding:30px;
-
-border-radius:25px;
-
+box-shadow:0 15px 40px rgba(0,0,0,.3);
 text-align:center;
-
-color:white;
-
-transition:.5s;
-
-box-shadow:0 10px 30px rgba(0,0,0,.2);
-
+transition:.4s;
+position:relative;
+overflow:hidden;
 }
 
-.propaganda h2{
+#card:hover{
+transform:scale(1.02);
+}
 
+#promo{
+position:absolute;
+top:15px;
+left:15px;
+background:#ff3d3d;
+color:white;
+padding:8px 18px;
+border-radius:30px;
+font-weight:bold;
+}
+
+#seloAno{
+position:absolute;
+top:15px;
+right:15px;
+background:gold;
+padding:8px 18px;
+border-radius:30px;
+font-weight:bold;
+}
+
+#categoriaCard{
+display:inline-block;
+background:#6C63FF;
+color:white;
+padding:8px 18px;
+border-radius:20px;
+margin-bottom:15px;
+}
+
+.empresa{
+font-size:18px;
+color:#666;
+margin-bottom:10px;
+}
+
+.produto h2{
 font-size:40px;
-
-margin-bottom:20px;
-
+margin:10px 0;
+color:#333;
 }
 
 .emoji{
-
 font-size:80px;
-
 }
 
-.preco{
-
-font-size:40px;
-
-font-weight:bold;
-
-margin:20px;
-
+.imagem img{
+width:250px;
+height:250px;
+object-fit:cover;
+border-radius:20px;
+margin:20px 0;
+box-shadow:0 10px 25px rgba(0,0,0,.2);
 }
 
-.slogan{
-
-font-size:30px;
-
+#sloganCard{
 font-style:italic;
-
-}
-
-.publico{
-
-margin-top:20px;
-
 font-size:22px;
-
+color:#555;
+margin-bottom:20px;
 }
 
-.descricao{
+#estrelas{
+font-size:28px;
+color:gold;
+margin-bottom:20px;
+}
 
-margin-top:20px;
+.precos{
+margin:20px 0;
+}
 
+#precoOriginal{
+text-decoration:line-through;
+color:red;
+font-size:22px;
+}
+
+#precoNovo{
+font-size:50px;
+color:#28a745;
+}
+
+#descricaoCard{
+font-size:17px;
+margin:20px;
+color:#555;
+}
+
+.info{
+display:grid;
+grid-template-columns:1fr;
+gap:10px;
+margin:20px 0;
+}
+
+.info div{
+background:#f5f5f5;
+padding:12px;
+border-radius:15px;
+font-weight:600;
+}
+
+.contador{
+background:#ffefc2;
+padding:15px;
+border-radius:15px;
 font-size:18px;
+font-weight:bold;
+margin-top:20px;
+}
+
+.estatisticas{
+display:flex;
+justify-content:center;
+gap:40px;
+margin:25px 0;
+font-size:20px;
+font-weight:bold;
+}
+
+.comprar{
+background:linear-gradient(90deg,#ff6b6b,#ff0080);
+font-size:22px;
+}
+
+.comprar:hover{
+background:linear-gradient(90deg,#ff0080,#ff6b6b);
+}
+
+.dark{
+background:#1e1e1e !important;
+color:white;
+}
+
+.dark .empresa,
+.dark #descricaoCard,
+.dark #sloganCard{
+color:#ddd;
+}
+
+.dark .info div{
+background:#333;
+color:white;
+}
+
+@media(max-width:1000px){
+
+.container{
+grid-template-columns:1fr;
+}
+
+#card{
+margin-top:20px;
+}
+
+header h1{
+font-size:34px;
+}
+
+.produto h2{
+font-size:30px;
+}
+
+.imagem img{
+width:200px;
+height:200px;
+}
 
 }
